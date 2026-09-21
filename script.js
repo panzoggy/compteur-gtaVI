@@ -95,9 +95,6 @@ function handleRelease() {
 }
 
 function triggerCelebration() {
-    const duration = 5000;
-    const end = Date.now() + duration;
-
     const colors = ['#ff006e', '#00f5d4', '#8338ec', '#ff9f1c'];
 
     (function frame() {
@@ -116,9 +113,7 @@ function triggerCelebration() {
             colors: colors
         });
 
-        if (Date.now() < end) {
-            requestAnimationFrame(frame);
-        }
+        requestAnimationFrame(frame);
     })();
 
     const style = document.createElement('style');

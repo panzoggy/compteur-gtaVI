@@ -9,7 +9,7 @@ An aesthetic web-based countdown timer for GTA VI release, featuring a Miami Vic
 - **Miami Vice vibes**: Gradient orbs, scanlines, grid overlay, palm silhouettes, animated sun
 - **Smooth animations**: 60fps countdown with millisecond precision
 - **Glitch effects**: Periodic visual glitches on the VI logo
-- **Celebration mode**: Confetti animation when countdown reaches zero
+- **Celebration mode**: Infinite confetti animation when countdown reaches zero
 - **Responsive design**: Works on desktop and mobile
 - **Offline support**: Service worker caches assets for offline viewing
 - **Accessibility**: Respects `prefers-reduced-motion`
