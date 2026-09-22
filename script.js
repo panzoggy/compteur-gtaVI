@@ -1,4 +1,5 @@
-const RELEASE_DATE = new Date('2026-11-19T00:00:00').getTime();
+// GTA VI Release: November 19, 2026 at 00:00:00 LOCAL TIME
+const RELEASE_DATE = new Date(2026, 10, 19, 0, 0, 0, 0).getTime(); // month is 0-indexed (10 = November)
 
 const elements = {
     days: document.getElementById('days'),
