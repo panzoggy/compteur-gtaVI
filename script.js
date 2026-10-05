@@ -1,5 +1,7 @@
-// GTA VI Release: November 19, 2026 at 00:00:00 LOCAL TIME
-const RELEASE_DATE = new Date(2026, 10, 19, 0, 0, 0, 0).getTime(); // month is 0-indexed (10 = November)
+// GTA VI Release: November 19, 2026 at 00:00:00 PARIS TIME (Europe/Paris timezone)
+// In November 2026, Paris is on CET (UTC+1) - DST ended Oct 25, 2026
+// 2026-11-19T00:00:00+01:00 = 2026-11-18T23:00:00Z
+const RELEASE_DATE = new Date('2026-11-19T00:00:00+01:00').getTime();
 
 const elements = {
     days: document.getElementById('days'),
