@@ -1,7 +1,26 @@
 // GTA VI Release: November 19, 2026 at 00:00:00 PARIS TIME (Europe/Paris)
-// In November 2026, Paris is on CET (UTC+1) - DST ended Oct 25, 2026
 // 2026-11-19T00:00:00+01:00 = 2026-11-18T23:00:00Z (UTC)
 const RELEASE_DATE = Date.UTC(2026, 10, 18, 23, 0, 0);
+
+// Same moment expressed as Paris "wall clock" time (stored as a UTC-based number)
+const RELEASE_WALL = Date.UTC(2026, 10, 19, 0, 0, 0);
+
+const PARIS_FORMAT = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/Paris',
+    hour12: false,
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+});
+
+// Current Paris wall-clock time as a number comparable with RELEASE_WALL.
+// This accounts for the DST switch (CEST -> CET on Oct 25, 2026), so the
+// countdown matches what the clocks in Paris show.
+function parisWallClock(timestamp) {
+    const p = {};
+    PARIS_FORMAT.formatToParts(timestamp).forEach(part => { p[part.type] = part.value; });
+    const hour = Number(p.hour) % 24;
+    return Date.UTC(p.year, p.month - 1, p.day, hour, p.minute, p.second) + (timestamp % 1000);
+}
 
 const elements = {
     days: document.getElementById('days'),
@@ -49,11 +68,12 @@ function updateDisplay(values, ms) {
 
 function calculateTimeRemaining() {
     const now = Date.now();
-    const diff = RELEASE_DATE - now;
 
-    if (diff <= 0) {
+    if (RELEASE_DATE - now <= 0) {
         return { finished: true };
     }
+
+    const diff = RELEASE_WALL - parisWallClock(now);
 
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

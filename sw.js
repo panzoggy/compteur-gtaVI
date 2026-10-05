@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gta6-countdown-v1';
+const CACHE_NAME = 'gta6-countdown-v2';
 const ASSETS = [
     '/',
     '/index.html',
