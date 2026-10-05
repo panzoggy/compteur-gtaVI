@@ -1,9 +1,9 @@
-const CACHE_NAME = 'gta6-countdown-v2';
+const CACHE_NAME = 'gta6-countdown-v3';
 const ASSETS = [
-    '/',
-    '/index.html',
-    '/style.css',
-    '/script.js',
+    './',
+    './index.html',
+    './style.css',
+    './script.js',
     'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap',
     'https://fonts.gstatic.com/s/orbitron/v28/yMJMMIlzdpvBhQQL_SC3X1yUpw.woff2',
     'https://fonts.gstatic.com/s/rajdhani/v20/LDItaoyNOAY6Uewc665KyEUEV_1U9rY.woff2',
@@ -54,7 +54,7 @@ self.addEventListener('fetch', (event) => {
                     })
                     .catch(() => {
                         if (event.request.mode === 'navigate') {
-                            return caches.match('/index.html');
+                            return caches.match('./index.html');
                         }
                     });
             })

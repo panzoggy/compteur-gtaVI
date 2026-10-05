@@ -40,7 +40,7 @@ if exist "%HTML_FILE%" (
     echo.
 ) else (
     echo [ERROR] index.html not found!
-    echo [ERROR] Please ensure all files are in the compteur directory.
+    echo [ERROR] Please ensure all files are in the project folder.
     echo.
 )
 

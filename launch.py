@@ -57,7 +57,7 @@ def main():
         print()
     else:
         print("[ERROR] index.html not found!")
-        print("[ERROR] Please ensure all files are in the compteur directory.")
+        print("[ERROR] Please ensure all files are in the project folder.")
         print()
         sys.exit(1)
 
